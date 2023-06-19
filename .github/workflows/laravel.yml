@@ -2,9 +2,9 @@ name: Laravel
 
 on:
   push:
-    branches: [ "test_github_actions" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "test_github_actions" ]
+    branches: [ "master" ]
 
 env:
   work_path: ./laravel
