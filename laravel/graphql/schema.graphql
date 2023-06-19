@@ -1,0 +1,18 @@
+#import project.graphql
+#import bug.graphql
+#import user.graphql
+#import auth.graphql
+
+
+type Query {
+  project(id: ID! @eq): Project @find
+  projects: [Project!]! @all
+  bugs: [Bug!]! @all
+  bug(id: ID! @eq): Bug @find
+}
+
+
+
+
+
+

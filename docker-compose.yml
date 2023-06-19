@@ -1,0 +1,71 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d
+    ports:
+      - "8083:8083"
+      - "8084:8084"
+    container_name: ${PROJECT_NAME}-nginx
+    depends_on:
+      - laravel
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  laravel:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ./laravel/:/var/www/laravel
+      - ./gii/:/var/www/gii
+    working_dir: /var/www/laravel
+    container_name: ${PROJECT_NAME}-laravel
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  db:
+    platform: linux/x86_64
+    image: mysql:8.0
+    restart: always
+    volumes:
+      - ./docker/db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: docker_db
+      MYSQL_ROOT_PASSWORD: 1111
+    ports:
+      - 8101:3306
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    container_name: ${PROJECT_NAME}_db
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: ${PROJECT_NAME}-phpmyadmin
+    depends_on:
+      - db
+    environment:
+      - PMA_ARBITRARY=1
+      - UPLOAD_LIMIT=100M
+    restart: always
+    ports:
+      - 8086:80
+    volumes:
+      - /sessions
+  front:
+    build:
+      context: .
+      dockerfile: docker/next/Dockerfile
+    volumes:
+      - ./next/:/var/www/next
+      - /next/node_modules
+    ports:
+      - 3000:3000
+    command: bash -c "npm i && npm run dev"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+
+
+
+
+

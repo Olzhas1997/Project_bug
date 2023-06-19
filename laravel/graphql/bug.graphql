@@ -1,0 +1,41 @@
+type Bug {
+    id: ID!
+    title: String
+    description: String
+    playbackSteps: String
+    expectedResult: String
+    actualResult: String
+    screenshot: String
+    bugStatus: String
+    seriousness: String
+    priority: String
+    project: Project! @belongsTo(relation: "project")
+    project_id: Int
+}
+
+extend type Mutation {
+    createBug (
+        title: String!
+        description: String
+        playbackSteps: String
+        expectedResult: String
+        actualResult: String
+        screenshot: String
+        bugStatus: String
+        seriousness: String
+        priority: String
+        project_id: Int!
+    ): Bug @create
+    updateBug (
+        id: ID!
+        title: String!
+        description: String
+        playbackSteps: String
+        expectedResult: String
+        actualResult: String
+        screenshot: String
+        bugStatus: String
+        seriousness: String
+        priority: String
+    ): Bug @update
+}
