@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ "test_github_actions" ]
 
+env:
+  work_path: ./laravel
+
 jobs:
   laravel-tests:
 
@@ -16,6 +19,8 @@ jobs:
         php-version: [7.x, 8.x]
 
     steps:
+    - name: Run echo PATH
+      run: echo ${{env.work_path}} >> $GITHUB_PATH
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-version: ${{ matrix.php-version }}
