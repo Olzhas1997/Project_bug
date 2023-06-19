@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [ "master" ]
 
-env:
-  work_path: ./laravel
-
 jobs:
   laravel-tests:
 
