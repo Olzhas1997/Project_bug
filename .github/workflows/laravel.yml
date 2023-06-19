@@ -26,6 +26,8 @@ jobs:
         php-version: ${{ matrix.php-version }}
     - name: Print dir content
       run: ls
+    - name: Print dir name
+      run: pwd
     - uses: actions/checkout@v3
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
