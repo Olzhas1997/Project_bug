@@ -28,6 +28,12 @@ jobs:
       run: ls
     - name: Print dir name
       run: pwd
+    - name: Parent dir transition
+      run: cd ../
+    - name: Print parent dir name
+      run: pwd
+    - name: Print dir content
+      run: ls
     - uses: actions/checkout@v3
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
