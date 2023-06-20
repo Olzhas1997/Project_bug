@@ -16,7 +16,7 @@ jobs:
         
         defaults:
           run:
-              working-directory: ./laravel
+              working-directory: ./next-ts
     
         steps:
         - uses: actions/checkout@v3
@@ -25,6 +25,6 @@ jobs:
           with:
             node-version: ${{ env.node-version }}
             cache: 'npm'
-        - run: npm run dev
+        - run: npm ci
         #- run: npm run build --if-present
         #- run: npm test
