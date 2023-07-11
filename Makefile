@@ -24,7 +24,7 @@ app-storage-link:
 
 app-grant-write-permission:
 	docker-compose run --rm laravel chmod -R 777 ./
-	docker-compose run --rm next chmod -R 777 ./
+	docker-compose run --rm front chmod -R 777 ./
 
 app-jwt:
 	docker-compose run --rm laravel php artisan jwt:secret
