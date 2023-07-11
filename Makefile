@@ -10,7 +10,7 @@ app-composer-install:
 	docker-compose run --rm laravel composer run-script post-root-package-install
 	docker-compose run --rm laravel composer run-script post-create-project-cmd
 
-app-migrations:docker-compose run --rm laravel php artisan migrate --force
+app-migrations:
 	docker-compose run --rm laravel php artisan migrate --force
 
 app-seeders:
