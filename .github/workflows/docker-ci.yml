@@ -14,5 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Docker Init
-        run: docker init
+        working-directory: ./docker
+        run: docker /next/Dockerfile
   
