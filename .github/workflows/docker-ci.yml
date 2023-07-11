@@ -1,0 +1,16 @@
+name: Docker CI
+
+on:
+  push:
+    branches: [ 'master' ]
+  pull_request:
+    branches: [ 'master' ]
+
+jobs:
+  docker-ci:
+    
+    runs-on: latest-ubuntu
+    
+    steps:
+    - run: docker
+  
