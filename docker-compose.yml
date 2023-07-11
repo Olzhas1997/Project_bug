@@ -8,7 +8,7 @@ services:
       - ./docker/nginx/conf.d/:/etc/nginx/conf.d
     ports:
       - "8083:8083"
-      - "8084:8084"
+      #- "8084:8084"
     container_name: ${PROJECT_NAME}-nginx
     depends_on:
       - laravel
