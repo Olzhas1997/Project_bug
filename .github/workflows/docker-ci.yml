@@ -16,4 +16,4 @@ jobs:
       - name: Makefile Init
         #working-directory: ./docker
         #run: make init
-        run: sudo netstat -pna | grep 3000
+        run: sudo netstat -pna | grep 8084
