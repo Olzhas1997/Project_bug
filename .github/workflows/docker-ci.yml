@@ -13,6 +13,6 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
-      - name: Docker Init
+      - name: Makefile Init
         #working-directory: ./docker
-        run: docker-compose
+        run: make init
