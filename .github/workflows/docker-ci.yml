@@ -19,5 +19,6 @@ jobs:
       - name: Makefile Up
         run: make up
       - name: Front linter test
+        working-directory: ./var/www/next
         run: npm run lint --if-present
         #run: sudo netstat -pna | grep 8083
