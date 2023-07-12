@@ -14,7 +14,6 @@
         "mll-lab/laravel-graphiql": "^1.2",
         "nuwave/lighthouse": "^5.70",
         "tymon/jwt-auth": "0.5.*"
-   },
     },
     "require-dev": {
         "facade/ignition": "^2.5",
