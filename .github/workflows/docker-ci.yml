@@ -18,6 +18,8 @@ jobs:
         run: make init
       - name: Makefile Up
         run: make up
+      - name: Docker ps
+        run: docker ps -q
       - name: Front linter test
         #working-directory: /next
         run: docker-compose run --rm front npm run lint --if-present
