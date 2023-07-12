@@ -52,8 +52,6 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
-    - name: PHP Serve
-      run: php artisan serve
     - name: Install npm dependencies
       run: npm install
     - name: Minify CSS and JS files
