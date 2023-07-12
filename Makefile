@@ -3,7 +3,7 @@ up:
 stop:
 	docker-compose stop
 
-init: up app-grant-write-permission app-composer-install app-migrations app-seeders app-add-admin app-storage-link
+init: up app-grant-write-permission app-composer-install app-migrations app-seeders app-storage-link
 #up app-grant-write-permission app-composer-install app-migrations app-jwt app-seeders app-add-admin app-storage-link
 app-composer-install:
 	docker-compose run --rm laravel composer install
