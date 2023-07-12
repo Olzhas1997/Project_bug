@@ -18,4 +18,6 @@ jobs:
         run: make init
       - name: Makefile Up
         run: make up
+      - name: Front linter test
+        run: npm run lint --if-present
         #run: sudo netstat -pna | grep 8083
